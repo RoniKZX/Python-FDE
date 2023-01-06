@@ -4,15 +4,14 @@ list_sum = 0
 
 # seek user input for ten numbers 
 for i in range(10):
-    userInput = input("Enter any 2-digit number: ")
+    userInput = int(input("Enter any 2-digit number: "))
     
 # check to see if number is even and if yes, add to list_sum
 # print incorrect value warning  when ValueError exception occurs
     try:
-        number = int(userInput)
-        user_list.append(number)
-        if number % 2 == 0:
-            list_sum += number
+        user_list.append(userInput)
+        if userInput % 2 == 0:
+            list_sum += userInput
     except ValueError:
         print("Incorrect value. That's not an int!")
 
