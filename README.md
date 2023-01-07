@@ -1,2 +1,2 @@
-# Python-Introduction
-Exercises and notes of the Introduction to Python course at Udacity
+# Python-FDE
+Exercises and notes of the Python courses in Futuro de Esperanza
