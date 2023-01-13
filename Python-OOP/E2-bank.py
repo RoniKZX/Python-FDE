@@ -39,9 +39,6 @@ class Book:
         print(f"""
         ISBN: {self.isbn}
         TITLE: {self.title} 
-        AUTHOR: {self.author}
-        PUBLISHER: {self.publisher}
-        PAGES: {self.pages}
         PRICE: {self.price}
         COPIES: {self.copies}
         \n""")
@@ -63,6 +60,29 @@ class Book:
         else:
             raise ValueError('The price should be between 50$ and 1000$')
 
+class Fraction:
+    def __init__(self, nr: int, dr: int = 1) -> None:
+        self.nr = nr
+        self.dr = dr
+
+        if self.dr < 0:
+            self.dr *= -1
+            self.nr *= -1
+
+    def show(self) -> None:
+        print(f"{self.nr}/{self.dr}")
+
+    def multiply(self, x) -> None:
+        if isinstance(x, int):
+            x = Fraction(x) 
+        
+        return Fraction(self.nr * x.nr, self.dr * x.dr)
+
+    def add(self, x) -> None:
+        if isinstance(x, int):
+            x = Fraction(x)
+
+        return Fraction((self.nr*x.dr + x.nr*self.dr), (self.dr*x.dr))
 
 if __name__ == '__main__':
     book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,10)
@@ -76,3 +96,16 @@ if __name__ == '__main__':
         book.display()
 
     print([j.title for j in books if j.author == 'Jack'])
+
+    f1 = Fraction(2,3)
+    f1.show()
+    f2 = Fraction(3,4)
+    f2.show()
+    f3 = f1.multiply(f2)
+    f3.show()
+    f3 = f1.add(f2)
+    f3.show()
+    f3 = f1.add(5) 
+    f3.show()
+    f3 = f1.multiply(5) 
+    f3.show()
