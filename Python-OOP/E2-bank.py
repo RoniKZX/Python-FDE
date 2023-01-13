@@ -105,34 +105,66 @@ class Product():
     def discount(self, new_discount):
         self._discount = new_discount
 
+class Circle:
+    def __init__(self, radius) -> None:
+        self.radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, new_radius):
+        if new_radius < 0:
+            raise ValueError("The radius should be positive")
+        self._radius = new_radius        
+
+    @property
+    def diameter(self):
+        return self._radius * 2
+
+    @property
+    def circumference(self):
+        return 2 * 3.1416 * self._radius
+
+    def area(self):
+        return 3.1416 * self._radius * self._radius
+
+
 if __name__ == '__main__':
-    # book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,10)
-    # book2 = Book('652-6-86-748413-3', 'Learn Chemistry','Jack', 'CBC', 400, 220,20)
-    # book3 = Book('957-7-39-347216-2', 'Learn Maths','John', 'XYZ', 500, 300,5)
-    # book4 = Book('957-7-39-347216-2', 'Learn Biology','Jack', 'XYZ', 400, 200,6)
+    book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,10)
+    book2 = Book('652-6-86-748413-3', 'Learn Chemistry','Jack', 'CBC', 400, 220,20)
+    book3 = Book('957-7-39-347216-2', 'Learn Maths','John', 'XYZ', 500, 300,5)
+    book4 = Book('957-7-39-347216-2', 'Learn Biology','Jack', 'XYZ', 400, 200,6)
 
-    # books = [book1, book2, book3, book4]
+    books = [book1, book2, book3, book4]
 
-    # for book in books:
-    #     book.display()
+    for book in books:
+        book.display()
 
-    # print([j.title for j in books if j.author == 'Jack'])
+    print([j.title for j in books if j.author == 'Jack'])
 
-    # f1 = Fraction(2,3)
-    # f1.show()
-    # f2 = Fraction(3,4)
-    # f2.show()
-    # f3 = f1.multiply(f2)
-    # f3.show()
-    # f3 = f1.add(f2)
-    # f3.show()
-    # f3 = f1.add(5) 
-    # f3.show()
-    # f3 = f1.multiply(5) 
-    # f3.show()
+    f1 = Fraction(2,3)
+    f1.show()
+    f2 = Fraction(3,4)
+    f2.show()
+    f3 = f1.multiply(f2)
+    f3.show()
+    f3 = f1.add(f2)
+    f3.show()
+    f3 = f1.add(5) 
+    f3.show()
+    f3 = f1.multiply(5) 
+    f3.show()
 
     p1 = Product('X879', 400, 6)
     p2 = Product('A234', 100, 5)
     p3 = Product('B987', 990, 4)
     p4 = Product('H456', 800, 6)
     
+    c1 = Circle(10)
+
+    print(c1.radius)
+    print(c1.diameter)
+    print(c1.circumference)
+    print(c1.area())
